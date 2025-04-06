@@ -4,6 +4,7 @@ import { Button, Input, Select, RTE } from '../index'
 import service from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import conf from "../../conf/conf";
 
 function PostForm({ post }) {
 
@@ -19,7 +20,7 @@ function PostForm({ post }) {
     );
 
     const navigate = useNavigate();
-    const userData = useSelector(state => state.user.userData);
+    const userData = useSelector(state => state.auth.userData);
 
     const submit = async (data) => {
         if (post) {
@@ -39,7 +40,7 @@ function PostForm({ post }) {
                 data.featuredImage = fileId
                 const dbPost = await service.createPost({
                     ...data,
-                    useId: userData.$id,
+                    userId: userData.$id,
                 })
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
@@ -52,8 +53,9 @@ function PostForm({ post }) {
             return value
                 .trim()
                 .toLowerCase()
-                .replace(/^[a-zA-Z\d\s]+/g, '-')
-                .replace(/\s/g, '-');
+                .replace(/[\d\s]/g, '-')
+
+
         }
         return '';
     }, [])
@@ -101,7 +103,7 @@ function PostForm({ post }) {
                 {post && (
                     <div className="w-full mb-4">
                         <img
-                            src={appwriteService.getFilePreview(post.featuredImage)}
+                            src={`https://cloud.appwrite.io/v1/storage/buckets/${conf.appwriteBucketId}/files/${post.featuredImage}/view?project=${conf.appwriteProjectId}&mode=admin`}
                             alt={post.title}
                             className="rounded-lg"
                         />

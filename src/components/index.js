@@ -10,7 +10,7 @@ import PostForm from "./post-form/PostForm";
 import PostCard from "./PostCard";
 import Protected from "./AuthLayout";
 import Button from "./Button";
-import Input from "./input";
+import Input from "./Input";
 import Select from "./Select";
 
 

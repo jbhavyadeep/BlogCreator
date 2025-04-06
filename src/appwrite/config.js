@@ -1,4 +1,4 @@
-import conf from '../conf.js';
+import conf from '../conf/conf'
 
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
@@ -9,8 +9,8 @@ export class Service {
 
     constructor() {
         this.client
-            .setEndpoint(conf.apprwiteUrl)
-            .setProject(conf.apprwiteProjectId);
+            .setEndpoint(conf.appwriteUrl)
+            .setProject(conf.appwriteProjectId);
 
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
@@ -110,7 +110,7 @@ export class Service {
         }
     }
 
-    async deletFile(fileId) {
+    async deleteFile(fileId) {
         try {
             await this.bucket.deleteFile(
 

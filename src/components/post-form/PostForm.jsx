@@ -25,7 +25,7 @@ function PostForm({ post }) {
         if (post) {
             const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
             if (file) {
-                service.deletFile(post.featuredImage);
+                service.deleteFile(post.featuredImage);
             }
             const dbPost = await service.updatePost(post.$id, { ...data, featuredImage: file ? file.i$id : undefined });
             if (dbPost) {

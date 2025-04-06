@@ -1,27 +1,24 @@
-import React, { useState } from "react";
-import authService from "../appwrite/auth";
-import { Link, useNavigate } from "react-router-dom";
-import { login } from "../store/authSlice";
-import { Button, Input, Logo } from './index';
-import { useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react'
+import authService from '../appwrite/auth'
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from '../store/authSlice'
+import { Button, Input, Logo } from './index.js'
+import { useDispatch } from 'react-redux'
+import { useForm } from 'react-hook-form'
 
 function Signup() {
-
-    const navigate = useNavigate();
-    const [error, setError] = useState("");
-    const dispatch = useDispatch();
-    const { register, handleSubmit } = useForm();
+    const navigate = useNavigate()
+    const [error, setError] = useState("")
+    const dispatch = useDispatch()
+    const { register, handleSubmit } = useForm()
 
     const create = async (data) => {
         setError("")
         try {
-            const user = await authService.createAccount(data);
+            const userData = await authService.createAccount(data)
             if (userData) {
-                const userData = await authService.getCurrentUser();
-                if (userData) {
-                    dispatch(login(userData));
-                }
+                const userData = await authService.getCurrentUser()
+                if (userData) dispatch(login(userData));
                 navigate("/")
             }
         } catch (error) {
@@ -47,16 +44,15 @@ function Signup() {
                         Sign In
                     </Link>
                 </p>
-
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-                <form onSubmit={handleSubmit(create)}>
-                    <div className="space-y-5">
-                        <Input
-                            label="Name: "
 
+                <form onSubmit={handleSubmit(create)}>
+                    <div className='space-y-5'>
+                        <Input
+                            label="Full Name: "
                             placeholder="Enter your full name"
                             {...register("name", {
-                                required: true
+                                required: true,
                             })}
                         />
                         <Input
@@ -73,22 +69,19 @@ function Signup() {
                         />
                         <Input
                             label="Password: "
-                            placeholder="Enter your password"
                             type="password"
-                            {
-                            ...register("password", {
+                            placeholder="Enter your password"
+                            {...register("password", {
                                 required: true,
-
-                            })
-                            }
+                            })}
                         />
-                        <Button type="submit"
-                            className="w-full">Create Account</Button>
-
+                        <Button type="submit" className="w-full">
+                            Create Account
+                        </Button>
                     </div>
                 </form>
-
             </div>
+
         </div>
     )
 }

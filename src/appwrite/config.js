@@ -130,9 +130,7 @@ export class Service {
             fileId
         );
     }
-    getPublicFileURL(fileId) {
-        return `${conf.appwriteUrl}/v1/storage/buckets/${conf.appwriteBucketId}/files/${fileId}/view?project=${conf.appwriteProjectId}`;
-    }
+
 
 
 

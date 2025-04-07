@@ -9,6 +9,9 @@ function PostCard({
     title,
     featuredImage
 }) {
+
+
+
     return (
         <Link
             to={`/post/${$id}`}>
@@ -18,7 +21,7 @@ function PostCard({
                         className="rounded-xl" />
                 </div>
                 <h2
-                    className="text-xl font-bold text-gray-200">{title}</h2>
+                    className="text-xl font-bold text-gray-600">{title}</h2>
             </div>
         </Link>
     )

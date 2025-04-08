@@ -96,7 +96,7 @@ function PostForm({ post }) {
                 <Input
                     label="Select Image for your Post"
                     type="file"
-                    className="mb-4 bg-gray-500 rounded-xl py-1 px-2 w-full hover:bg-gray-600"
+                    className="mb-4 bg-gray-500 rounded-xl py-1 px-2 w-full hover:bg-gray-600 text-white/80"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
@@ -115,7 +115,7 @@ function PostForm({ post }) {
                     className="mb-4"
                     {...register("status", { required: true })}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} classname="w-full mt-2 bg-blue-900 text-white hover:bg-green-800">
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>

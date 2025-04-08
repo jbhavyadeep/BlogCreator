@@ -37,8 +37,8 @@ function Login() {
         >
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px]">
-                        <Logo width="100%" />
+                    <span className="inline-block w-full max-w-[60px]">
+                        <Logo />
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight text-gray-500">Sign in to your account</h2>
@@ -67,7 +67,7 @@ function Login() {
                             })}
                         />
                         <Input
-                            label="Password: "
+                            label="Password "
                             type="password"
                             placeholder="Enter your password"
                             {...register("password", {
@@ -76,7 +76,7 @@ function Login() {
                         />
                         <Button
                             type="submit"
-                            className="w-full hover:bg-gray-700 bg-gray-500 rounded-2xl text-gray-50 py-1"
+                            className="w-fit px-3 hover:bg-gray-700 bg-gray-500 rounded-xl text-gray-50 py-1"
                         >Sign in</Button>
                     </div>
                 </form>

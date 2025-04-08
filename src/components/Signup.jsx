@@ -30,7 +30,7 @@ function Signup() {
         <div className="flex items-center justify-center">
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px]">
+                    <span className="inline-block w-full max-w-[60px]">
                         <Logo width="100%" />
                     </span>
                 </div>
@@ -49,14 +49,14 @@ function Signup() {
                 <form onSubmit={handleSubmit(create)}>
                     <div className='space-y-5 text-gray-500'>
                         <Input
-                            label="Full Name: "
+                            label="Full Name"
                             placeholder="Enter your full name"
                             {...register("name", {
                                 required: true,
                             })}
                         />
                         <Input
-                            label="Email: "
+                            label="Email"
                             placeholder="Enter your email"
                             type="email"
                             {...register("email", {
@@ -68,7 +68,7 @@ function Signup() {
                             })}
                         />
                         <Input
-                            label="Password: "
+                            label="Password"
                             type="password"
                             placeholder="Enter your password"
                             {...register("password", {
@@ -76,7 +76,7 @@ function Signup() {
                             })}
 
                         />
-                        <Button type="submit" className="w-full hover:bg-gray-700 bg-gray-500 rounded-2xl py-1 text-gray-50">
+                        <Button type="submit" className="w-fit px-3 hover:bg-gray-700 bg-gray-500 rounded-xl py-1 text-gray-50">
                             Create Account
                         </Button>
                     </div>
